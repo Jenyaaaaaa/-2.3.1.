@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление пользователя</title>
+</head>
+<body>
+<h1>Добавить пользователя</h1>
+<form th:action="@{/add}" method="post">
+    <label for="firstName">Внесите имя:</label>
+    <input type="text" id="firstName" name="firstName" th:value="${user.firstName}">
+    <br>
+    <label for="lastName">Внесите фамилию:</label>
+    <input type="text" id="lastName" name="lastName" th:value="${user.lastName}">
+    <br>
+    <label for="age">Внесите возраст:</label>
+    <input type="text" id="age" name="age" th:value="${user.age}">
+    <br>
+    <input type="submit" value="Добавить">
+    <br>
+<!--    <a th:href="@{/index}" th:text="Перейти к списку пользователей"></a>-->
+    <a href="/">Перейти к списку пользователей</a>
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>Добавление пользователя</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<h2>Добавление пользователя</h2>-->
+
+<!--<form th:method="POST" th:action="@{/}" th:object="${user}">-->
+<!--  <p>-->
+<!--    <label for="first_name">Ваше имя: </label>-->
+<!--    <input type="text" th:field="${user.firstName}" id="first_name"/>-->
+<!--  </p>-->
+<!--  <p>-->
+<!--    <label for="last_name">Ваша фамилия: </label>-->
+<!--    <input type="text" th:field="${user.lastName}" id="last_name"/>-->
+<!--  </p>-->
+<!--  <p>-->
+<!--    <label for="age">Ваш возраст: </label>-->
+<!--    <input type="text" th:field="${user.age}" id="age"/>-->
+<!--  </p>-->
+<!--  <br>-->
+<!--  <input type="submit" value="Добавить пользователя"/>-->
+<!--  <br>-->
+<!--  <a href="/.html">Перейти к списку пользователей</a>-->
+<!--  <br>-->
+<!--&lt;!&ndash;  <a th:href="@{/}"></a>&ndash;&gt;-->
+<!--</form>-->
+
+
+<!--</body>-->
+<!--</html>-->

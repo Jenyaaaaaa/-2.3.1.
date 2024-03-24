@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список пользователей</title>
+</head>
+<body>
+<h1>Список пользователей</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Номер</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Возраст</th>
+        <th>Действие</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user, userStat : ${listUsers}">
+        <td th:text="${userStat.index + 1}"></td>
+        <td th:text="${user.firstName}"></td>
+        <td th:text="${user.lastName}"></td>
+        <td th:text="${user.age}"></td>
+        <td>
+            <!-- Кнопка для редактирования -->
+            <form th:action="@{/edit}" method="get">
+                <input type="hidden" name="id" th:value="${user.id}">
+                <button type="submit">Изменить</button>
+            </form>
+            <!-- Кнопка для удаления -->
+            <form th:action="@{/delete}" method="post">
+                <input type="hidden" name="id" th:value="${user.id}">
+                <button type="submit">Удалить</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Кнопка для добавления нового пользователя -->
+<!--<a th:href="@{/add}">Добавить пользователя</a>-->
+<br>
+<a href="/add">Добавить пользователя</a>
+</body>
+</html>
+
+</body>
+</html>
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Главная страница</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Главная страница</h1>-->
+<!--&lt;!&ndash;<table border="1">&ndash;&gt;-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>ID</th>-->
+<!--        <th>Имя</th>-->
+<!--        <th>Фамилия</th>-->
+<!--        <th>Возраст</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="user : ${listUsers}">-->
+<!--        <td th:text="${user.id}"></td>-->
+<!--        <td th:text="${user.firstName}"></td>-->
+<!--        <td th:text="${user.lastName}"></td>-->
+<!--        <td th:text="${user.age}"></td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--<a href="/add">Добавить пользователя</a>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>User List</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>User List</h1>-->
+<!--&lt;!&ndash;<table border="1">&ndash;&gt;-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>ID</th>-->
+<!--        <th>Name</th>-->
+<!--        <th>Email</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="user : ${listUsers}">-->
+<!--        <td th:text="${user.id}"></td>-->
+<!--        <td th:text="${user.name}"></td>-->
+<!--        <td th:text="${user.email}"></td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html lang="en" xmlns:th="http://www.thymeleaf.org">&ndash;&gt;-->
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta charset="UTF-8">&ndash;&gt;-->
+<!--&lt;!&ndash;    <title>Список пользователей</title>&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+<!--&lt;!&ndash;<h2>Список пользователей</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;<br>&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;<a th:href="@{/add_user}">Просмотр списка пользователей</a>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<br>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;<table th:border="1">&ndash;&gt;-->
+<!--&lt;!&ndash;             <a th:href="@{'/view_user/' + ${user.getId()}}">Просмотр списка пользователей</a>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;    <th:block th:each="user : ${listUsers}">&ndash;&gt;-->
+<!--&lt;!&ndash;        <tr th:align=center>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td><b>ID:</b></td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td th:text = "${user.getId()}"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;        </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;        <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td><b>Имя:</b></td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td th:text = "${user.getFirstName()}"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;        </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;        <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td><b>Фамилия:</b></td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td th:text = "${user.getLastName()}"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;        </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;        <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td><b>Возраст:</b></td>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td th:text = "${user.getAge()}"></td>&ndash;&gt;-->
+<!--&lt;!&ndash;        </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;        <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;            <td>&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type="submit" value="Просмотр" >&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type="submit" value="Добавление"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type="submit" value="Редактирование"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type="submit" value="Удаление"/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </td>&ndash;&gt;-->
+<!--&lt;!&ndash;        </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;    </th:block>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</table>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Удаление пользователя</title>
+</head>
+<body>
+<h1>Удалите пользователя</h1>
+<p>Вы действительно хотите удалить данного пользователя?</p>
+<form th:action="@{/delete}" method="post">
+    <input type="hidden" name="id" th:value="${user.id}">
+    <input type="submit" value="Удалить">
+    <br>
+    <a href="/">Перейти к списку пользователей</a>
+</form>
+<!--<a href="/">Cancel</a>-->
+</body>
+</html>
+
+

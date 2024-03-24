@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменить данные пользователя</title>
+</head>
+<body>
+<h1>Изменение данных пользователя</h1>
+<form th:action="@{/edit.html}" method="post">
+<!--    <input type="hidden" th:field="*{id}">-->
+    <label for="firstName">Внесите имя:</label>
+    <input type="text" id="firstName" name="firstName" th:value="${user.firstName}">
+    <br>
+    <label for="lastName">Внесите фамилию:</label>
+    <input type="text" id="lastName" name="lastName" th:value="${user.lastName}">
+    <br>
+    <label for="age">Внесите возраст:</label>
+    <input type="text" id="age" name="age" th:value="${user.age}">
+    <br>
+    <input type="submit" value="Изменить">
+    <br>
+        <a href="/">Перейти к списку пользователей</a>
+</form>
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Редактирование пользователя</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h2>Изменение данных пользователя</h2>-->
+<!--<br>-->
+<!--&lt;!&ndash;<a th:href="@{/}">На главную</a>&ndash;&gt;-->
+<!--&lt;!&ndash;<br>&ndash;&gt;-->
+
+<!--<form th:method="patch" th:action="@{/save_edit_user(id=${user.getId()})}" th:object="${user}">-->
+<!--    <p>-->
+<!--        <label for="first_name">Измените имя: </label>-->
+<!--        <input type="text" th:field="${user.firstName}" id="first_name"/>-->
+<!--    </p>-->
+<!--    <p>-->
+<!--        <label for="last_name">Измените фамилию: </label>-->
+<!--        <input type="text" th:field="${user.lastName}" id="last_name"/>-->
+<!--    </p>-->
+<!--    <p>-->
+<!--        <label for="age">Измените возраст: </label>-->
+<!--        <input type="text" th:field="${user.age}" id="age"/>-->
+<!--    </p>-->
+<!--    <br>-->
+<!--    <input type="submit" value="Сохранить изменения"/>-->
+<!--    <br>-->
+<!--    <a href="/index.html">Перейти к списку пользователей</a>-->
+<!--    <br>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
